@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "weather-drone-monitoring": {
+      "hosting": {
+        "WeatherStationProject": [
+          "weather-drone-monitoring"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "weather-drone-monitoring"
+  }
+}

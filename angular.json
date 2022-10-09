@@ -94,8 +94,21 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "WeatherStationProject:build:production",
+            "firebaseProject": "weather-drone-monitoring",
+            "firebaseHostingSite": "weather-drone-monitoring"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "d6c02508-aea6-4b05-9b9d-82473c6c74c3"
   }
 }
