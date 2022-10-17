@@ -1,0 +1,35 @@
+<div class="tour-box">
+  <div class="tour-box__side tour-box__side--front">
+    <div class="tour-box__photo-{{randomCardStyleId}}">
+      &nbsp;
+    </div>
+    <h4 class="tour-box__heading">
+      <span class="tour-box__heading-span tour-box__heading-span--{{randomCardStyleId}}">City {{cityWeather.cityName}}</span>
+    </h4>
+    <h4 class="tour-box__facts-{{randomCardStyleId}}" > Facts about city </h4>
+    <div class="tour-box__text">
+      <div class="tour-box__text--item">{{cityWeather.factsAboutCity[0]}}</div>
+      <div class="tour-box__text--item">{{cityWeather.factsAboutCity[1]}}</div>
+      <div class="tour-box__text--item">{{cityWeather.factsAboutCity[2]}}</div>
+    </div>
+  </div>
+
+  <div class="tour-box__side tour-box__side--back tour-box__side--back--{{randomCardStyleId}}">
+    <div class="tour-box__cta">
+      <div class="tour-box__features">
+        <div class="tour-box__features--item">
+          <span>Humidity: </span><span>{{cityWeather.humidity}}</span>
+        </div>
+        <div class="tour-box__features--item">
+          <span>Temperature: </span><span>{{cityWeather.temperature}}</span>
+        </div>
+        <div class="tour-box__features--item">
+          <span>Pressure: </span><span>{{cityWeather.pressure}}</span>
+        </div>
+        <div class="tour-box__features--item">
+          <span>Overall: </span><span>{{cityWeather.overall}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
