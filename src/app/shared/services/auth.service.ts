@@ -4,6 +4,7 @@ import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { AngularFirestore, AngularFirestoreDocument} from "@angular/fire/compat/firestore";
 import { Router } from '@angular/router';
 import {error} from "@angular/compiler-cli/src/transformers/util";
+import {BehaviorSubject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,8 @@ import {error} from "@angular/compiler-cli/src/transformers/util";
 
 export class AuthService {
   userData: any; // Save logged in user data
+  userData$ = new BehaviorSubject<any>(null);
+
   constructor(
     public aFireStore: AngularFirestore, // Firestore service
     public aFireAuth: AngularFireAuth, // Firebase auth service
@@ -22,6 +25,7 @@ export class AuthService {
     this.aFireAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
+        this.userData$.next(user);
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
       } else {
@@ -34,7 +38,7 @@ export class AuthService {
   // Returns true if user is logged and email is verified, false otherwise
   get isUserLogged(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
-    return user !== null && user.emailVerified !== false; //? true : false;
+    return user?.emailVerified;
   }
 
   /*
@@ -98,6 +102,7 @@ export class AuthService {
       displayName: user.displayName,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
+      roles: {reader: true}
     }
     return userReference.set(userData, {merge: true,});
   }
