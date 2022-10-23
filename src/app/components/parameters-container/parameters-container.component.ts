@@ -18,10 +18,10 @@ export class ParametersContainerComponent implements OnInit {
   parameters: IParametersData[] = parametersReference;
 
   ngOnInit(): void {
-    this.authService.userData$
+    this.authService.user
       .pipe(
         filter(Boolean),
-        switchMap(() => this.db.object(`users/${this.authService.userData.uid}/weatherData`).valueChanges()),
+        switchMap(() => this.db.object(`users/${this.authService.user}/weatherData`).valueChanges()),
         tap((data: any) => {
           this.parameters = this.parameters.map((parameters) => {
             const gettedData = Object.entries(data).find(([key, value]) => {
