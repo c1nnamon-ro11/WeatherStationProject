@@ -15,7 +15,6 @@ import {AngularFireDatabase} from "@angular/fire/compat/database";
 
 export class AuthService {
   user = new BehaviorSubject<User | null>(null);
-
   constructor(private afAuth: AngularFireAuth,
               private db: AngularFireDatabase,
               private router: Router) {
@@ -45,7 +44,7 @@ export class AuthService {
         console.log('Update user')
         this.updateUser(credential.user)
       })
-      //.then(() => this.router.navigate(['dashboard']))
+      .then(() => this.router.navigate(['dashboard']))
   }
 
   signOut() {
@@ -54,13 +53,12 @@ export class AuthService {
 
   private updateUser(authData:any) {
     authData.roles = { reader: true, admin: false}
-    //console.log(authData)
+    console.log(authData, authData)
     const userData = new User(authData)
-    console.log(userData+ 'user data')
-    const ref = this.db.object('users/' + 'authDatauid')
+    console.log(userData, 'user data')
+    const ref = this.db.object('users/' + authData.uid)
     ref.valueChanges()
       .subscribe(user => {
-        console.log('user.roles')
         // @ts-ignore
         if(!user?.roles) {
           ref.update(userData)

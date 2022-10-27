@@ -4,7 +4,7 @@ import {AuthService} from "../../shared/services/auth.service";
 import {IParametersData} from "../../models/ParametersData";
 import {filter, switchMap, tap} from "rxjs";
 import {parametersData as parametersReference} from '../../data/DataBaseParametersReference';
-import * as _ from 'lodash'
+import {RealTimeInfoService} from "../../shared/services/realtimeInfo.service";
 
 @Component({
   selector: 'app-parameters-container',
@@ -12,16 +12,23 @@ import * as _ from 'lodash'
   styleUrls: ['./parameters-container.component.css']
 })
 export class ParametersContainerComponent implements OnInit {
+  constructor(private db: AngularFireDatabase,
+              public authService: AuthService,
+              public realTimeInfoService: RealTimeInfoService) {
 
-  constructor(private db: AngularFireDatabase, public authService: AuthService) {
   }
+  user: string
   parameters: IParametersData[] = parametersReference;
-
+  data: any
   ngOnInit(): void {
+    this.getDataFromDrone()
+  }
+
+  getDataFromDrone() {
     this.authService.user
       .pipe(
         filter(Boolean),
-        switchMap(() => this.db.object(`users/${this.authService.user}/weatherData`).valueChanges()),
+        switchMap(() => this.db.object(`data/${this.realTimeInfoService.getUserId()}`).valueChanges()),
         tap((data: any) => {
           this.parameters = this.parameters.map((parameters) => {
             const gettedData = Object.entries(data).find(([key, value]) => {

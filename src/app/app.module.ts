@@ -22,6 +22,7 @@ import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import {AppRoutingModule} from "./app-routing.module";
+import {RealTimeInfoService} from "./shared/services/realtimeInfo.service";
 
 @NgModule({
   declarations: [
@@ -49,7 +50,10 @@ import {AppRoutingModule} from "./app-routing.module";
     RouterOutlet,
     RouterLinkWithHref,
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    RealTimeInfoService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
