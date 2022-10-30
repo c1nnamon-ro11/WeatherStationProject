@@ -3,22 +3,19 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import {AngularFireDatabase} from "@angular/fire/compat/database";
 import {AuthService} from "./auth.service";
-import {filter, map, switchMap, tap} from "rxjs";
+import {map} from "rxjs";
 import * as _ from 'lodash'
-import {IParametersData} from "../../models/ParametersData";
-import {parametersData as parametersReference} from "../../data/DataBaseParametersReference";
 import {DataService} from "./data.service.spec";
-import {get} from "@angular/fire/database";
+
 @Injectable()
 export class RealTimeInfoService {
 
   public userId: string | undefined;
   userRoles: Array<string | undefined>;
-  parameters: IParametersData[] = parametersReference;
-  local: any
+  data: any
 
   constructor(private auth: AuthService,
-              private dataSer: DataService,
+              private dataService: DataService,
               private db: AngularFireDatabase) {
 
     auth.user.pipe(map(user => {
@@ -29,9 +26,9 @@ export class RealTimeInfoService {
       return this.userRoles = _.keys(_.get(user, 'roles'))
     })).subscribe()
 
-    // dataSer.data.pipe(map(data => {
-    //   return this.local = _.get(data, 'weatherData')
-    // })).subscribe()
+    dataService.data.pipe(map(data => {
+      return this.data = _.get(data, 'weatherData')
+    })).subscribe()
   }
 
   get canRead(): boolean {
@@ -45,14 +42,20 @@ export class RealTimeInfoService {
   }
 
   private matchingRole(allowedRoles: string[]): boolean {
-    return !_.isEmpty(_.intersection(allowedRoles, this.userRoles))
+    if(!this.auth.user) return false
+    for(const role in allowedRoles) {
+      if(this.userRoles[role]) {
+        return true
+      }
+    }
+    return false
   }
 
   getUserId() {
     return this.userId
   }
 
-  getLocal() {
-    return this.local
+  getDataFromRTDB() {
+    return this.data
   }
 }

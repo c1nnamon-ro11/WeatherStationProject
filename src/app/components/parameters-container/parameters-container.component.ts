@@ -20,6 +20,7 @@ export class ParametersContainerComponent implements OnInit {
   user: string
   parameters: IParametersData[] = parametersReference;
   data: any
+
   ngOnInit(): void {
     this.getDataFromDrone()
   }
