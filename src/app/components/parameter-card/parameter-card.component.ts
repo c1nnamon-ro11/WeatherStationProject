@@ -8,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class ParameterCardComponent implements OnInit {
 
   constructor() { }
-  @Input() productList!: { name: string; class: string, id: string, data: string, measurement: string};
+  @Input() parametersList!: { name: string; class: string, id: string, data: string|number, measurement: string};
 
   ngOnInit() {
   }

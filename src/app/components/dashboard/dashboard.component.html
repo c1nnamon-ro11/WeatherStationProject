@@ -1,0 +1,51 @@
+<!-- Top navigation -->
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0">
+    <img class="brand-logo" src="assets/logo-positronx-white.svg" alt="positronX.io Logo">
+  </a>
+</nav>
+<!-- Sidebar navigation -->
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active">
+              <i class="fas fa-user"></i>User Profile
+            </a>
+          </li>
+          <!-- Calling SignOut() Api from AuthService -->
+          <li class="nav-item">
+            <a class="nav-link" (click)="authService.signOut()">
+              <i class="fas fa-sign-out-alt"></i>Log out
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Main content -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <div class="inner-adjust">
+        <div class="pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">User Profile</h1>
+        </div>
+        <!-- Show user data when logged in -->
+
+      </div>
+    </main>
+  </div>
+</div>
+<div class="topnav">
+  <h1>HOME STATION</h1>
+</div>
+<div class="content">
+  <app-parameters-container class="cards"></app-parameters-container>
+  <div class="big-cards">
+    <app-big-card-cities-info></app-big-card-cities-info>
+    <app-big-card-cities-info></app-big-card-cities-info>
+  </div>
+</div>
+<div class="bottomnav">
+  <h1>2022</h1>
+</div>
