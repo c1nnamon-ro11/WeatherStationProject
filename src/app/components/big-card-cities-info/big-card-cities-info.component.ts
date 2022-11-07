@@ -9,6 +9,7 @@ import {ICitiesInfo} from "../../models/CitiesInfo";
   templateUrl: './big-card-cities-info.component.html',
   styleUrls: ['./big-card-cities-info.component.css']
 })
+
 export class BigCardCitiesInfoComponent {
   randomDataWeatherId!: number
   randomCardStyleId!: number

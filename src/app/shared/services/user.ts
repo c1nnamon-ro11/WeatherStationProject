@@ -1,3 +1,4 @@
+// User class
 export class User {
   uid: string;
   email: string;
@@ -14,7 +15,9 @@ export class User {
   }
 }
 
+// Security user roles
 export interface Roles {
+  [key: string]: any;
   reader: boolean;
   admin?: boolean;
 }

@@ -1,5 +1,7 @@
 import {IParametersData} from "../models/ParametersData";
 
+// Defined format of data for cards representing
+// Can be removed if sent package will contain those parameters
 export const parametersData: IParametersData[] = [
   {
     name: 'TEMPERATURE',

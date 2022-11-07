@@ -13,7 +13,6 @@ export class DataService {
   data = new BehaviorSubject<any | null>(null);
   constructor(private afAuth: AngularFireAuth,
               private db: AngularFireDatabase) {
-    //console.log('wtf')
     this.afAuth.authState// @ts-ignore
       .pipe(switchMap(auth => {
           if (auth) {

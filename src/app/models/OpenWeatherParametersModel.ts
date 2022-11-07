@@ -1,4 +1,4 @@
-export class OpenWeatherParametersModel{
+export class OpenWeatherParametersModel {
   public id!: number
   public cityName!: string
   public factsAboutCity!: string[]

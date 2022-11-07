@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { BigCardCitiesInfoComponent } from './components/big-card-cities-info/big-card-cities-info.component';
 import { HttpClientModule} from "@angular/common/http";
 import { ParametersContainerComponent } from './components/parameters-container/parameters-container.component';
@@ -23,6 +20,7 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import {AppRoutingModule} from "./app-routing.module";
 import {RealTimeInfoService} from "./shared/services/realtimeInfo.service";
+import { DataDashboardComponent } from './components/data-dashboard/data-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -34,12 +32,11 @@ import {RealTimeInfoService} from "./shared/services/realtimeInfo.service";
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    DashboardComponent
+    DashboardComponent,
+    DataDashboardComponent
   ],
   imports: [
     BrowserModule,
-    //provideFirebaseApp(() => initializeApp(environment.firebase)),
-    //provideDatabase(() => getDatabase()),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,

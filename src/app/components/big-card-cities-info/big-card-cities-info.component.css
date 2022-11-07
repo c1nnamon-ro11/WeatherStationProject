@@ -1,3 +1,14 @@
+*{
+  font-family: Arial;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+}
+
+p {
+  font-size: 1.2rem;
+}
+
 .tour-box {
   perspective: 150rem;
   -moz-perspective: 150rem;
@@ -36,7 +47,6 @@
 .tour-box__side--back--3 {
   background-image: linear-gradient(to right bottom, #2998ff, #5643fa);
 }
-
 
 .tour-box:hover .tour-box__side--front {
   transform: rotateY(-180deg);
@@ -125,6 +135,7 @@
   position: absolute;
   top: 0.1rem;
   width: 100%;
+  margin: 20px 0;
 }
 
 .tour-box__heading-span {

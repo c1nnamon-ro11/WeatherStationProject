@@ -1,4 +1,4 @@
-<div *ngIf="realTimeInfoService.canRead">
+<div *ngIf="realTimeInfoService.CanRead" class="cards">
   <div *ngFor="let parameter of parameters" class="card">
     <app-parameter-card [parametersList]="parameter"></app-parameter-card>
   </div>
