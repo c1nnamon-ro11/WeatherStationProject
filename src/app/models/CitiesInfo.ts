@@ -1,4 +1,4 @@
-export interface ICitiesInfo{
+export interface ICitiesInfo {
   id: number
   cityName: string
   factsAboutCity: string[]

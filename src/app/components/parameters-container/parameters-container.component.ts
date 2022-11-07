@@ -12,24 +12,27 @@ import {RealTimeInfoService} from "../../shared/services/realtimeInfo.service";
   styleUrls: ['./parameters-container.component.css']
 })
 export class ParametersContainerComponent implements OnInit {
+
   constructor(private db: AngularFireDatabase,
               public authService: AuthService,
               public realTimeInfoService: RealTimeInfoService) {
 
   }
+
   user: string
   parameters: IParametersData[] = parametersReference;
   data: any
 
   ngOnInit(): void {
-    this.getDataFromDrone()
+    this.GetDataFromDrone()
   }
 
-  getDataFromDrone() {
+  // Get weather parameters from RTDB for cards
+  GetDataFromDrone() {
     this.authService.user
       .pipe(
         filter(Boolean),
-        switchMap(() => this.db.object(`data/${this.realTimeInfoService.getUserId()}`).valueChanges()),
+        switchMap(() => this.db.object(`data/${this.realTimeInfoService.GetUserId()}`).valueChanges()),
         tap((data: any) => {
           this.parameters = this.parameters.map((parameters) => {
             const gettedData = Object.entries(data).find(([key, value]) => {
@@ -37,7 +40,7 @@ export class ParametersContainerComponent implements OnInit {
             });
             return {
               ...parameters,
-              data: (gettedData?.[1] !== undefined? gettedData?.[1] : "Loading...") as string|number
+              data: (gettedData?.[1] !== undefined? gettedData?.[1] : "Loading...") as string | number
             }
           })
         })

@@ -1,5 +1,8 @@
 import {ICitiesInfo} from "../models/CitiesInfo";
 
+// Class for defined info about all district centers of Ukraine
+// Includes: uniq id, full city name, few facts about city,
+// defined index from OpenWeather open API
 export const citiesInfo: ICitiesInfo[] = [
   {
     id: 1,

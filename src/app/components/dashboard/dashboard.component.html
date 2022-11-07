@@ -1,9 +1,12 @@
-<!-- Top navigation -->
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0">
-    <img class="brand-logo" src="assets/logo-positronx-white.svg" alt="positronX.io Logo">
-  </a>
-</nav>
+<div>
+  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0">
+      <img class="brand-logo" src="assets/Purple%20Cat.png" alt="Logo"
+           width="30"
+           height="30">
+    </a>
+  </nav>
+</div>
 <!-- Sidebar navigation -->
 <div class="container-fluid">
   <div class="row">
@@ -17,7 +20,7 @@
           </li>
           <!-- Calling SignOut() Api from AuthService -->
           <li class="nav-item">
-            <a class="nav-link" (click)="authService.signOut()">
+            <a class="nav-link" (click)="authService.SignOut()">
               <i class="fas fa-sign-out-alt"></i>Log out
             </a>
           </li>
@@ -31,21 +34,21 @@
           <h1 class="h2">User Profile</h1>
         </div>
         <!-- Show user data when logged in -->
-
+        <div class="row" *ngIf="authService.user as user">
+          <div class="col-md-12">
+            <div class="media">
+              <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user?.value?.photoURL) ? (user?.value?.photoURL) : '/assets/dummy-user.png'}}"
+                   alt="{{user?.value?.email}}">
+              <div class="media-body">
+                <h1>Hello: <strong>{{(user?.value?.email) ? user?.value?.email : 'User'}}</strong></h1>
+                <p>User ID: <strong>{{user?.value?.uid}}</strong></p>
+                <p>Email: <strong>{{user?.value?.email}}</strong></p>
+                <button (click)="navigateToDataDashboard()">Navigate to data dashboard</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   </div>
-</div>
-<div class="topnav">
-  <h1>HOME STATION</h1>
-</div>
-<div class="content">
-  <app-parameters-container class="cards"></app-parameters-container>
-  <div class="big-cards">
-    <app-big-card-cities-info></app-big-card-cities-info>
-    <app-big-card-cities-info></app-big-card-cities-info>
-  </div>
-</div>
-<div class="bottomnav">
-  <h1>2022</h1>
 </div>
