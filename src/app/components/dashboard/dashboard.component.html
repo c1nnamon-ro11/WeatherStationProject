@@ -1,54 +1,49 @@
-<div>
-  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0">
-      <img class="brand-logo" src="assets/Purple%20Cat.png" alt="Logo"
-           width="30"
-           height="30">
-    </a>
-  </nav>
+<div class="topnav">
+  <h1>USER PROFILE</h1>
 </div>
-<!-- Sidebar navigation -->
-<div class="container-fluid">
-  <div class="row">
-    <nav class="col-md-2 d-md-block bg-light sidebar">
-      <div class="sidebar-sticky">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active">
-              <i class="fas fa-user"></i>User Profile
-            </a>
-          </li>
-          <!-- Calling SignOut() Api from AuthService -->
-          <li class="nav-item">
-            <a class="nav-link" (click)="authService.SignOut()">
-              <i class="fas fa-sign-out-alt"></i>Log out
-            </a>
-          </li>
+
+<div class="data-container">
+  <div class="sidebar sidebar-sticky">
+    <ul class="nav flex-column">
+      <li [ngClass]="{'activePage' : isOnPage}" class="nav-item" (click)="isOnPage ? authService.navigateToUserProfile() : false">
+        <a class="nav-link">
+          <i class="fas fa-user"></i>User Profile
+        </a>
+      </li>
+      <li class="nav-item" (click)="authService.navigateToDataDashboard()">
+        <a class="nav-link">
+          <i class="fas fa-file"></i>Data
+        </a>
+      </li>
+      <!-- Calling SignOut() Api from AuthService -->
+      <li class="nav-item" (click)="authService.SignOut()">
+        <a class="nav-link">
+          <i class="fas fa-sign-out-alt"></i>Log out
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="authService.user as user">
+    <div class="data">
+      <img class="align-self-start mr-5 img-thumbnail rounded-circle user-photo" src="{{(user?.value?.photoURL) ? (user?.value?.photoURL) : '../../../assets/doge.jpg'}}"
+           alt="{{user?.value?.email}}">
+
+      <div class="content">
+        <h1>Hello: <strong>User</strong></h1>
+        <br>
+        <p>User ID: <strong>{{user?.value?.uid}}</strong></p>
+        <p>Email: <strong>{{user?.value?.email}}</strong></p>
+        <p>Roles:</p>
+        <ul>
+          <li><p>reader: <strong>{{user?.value?.roles!.reader}}</strong></p></li>
+          <li><p>admin: <strong>{{user?.value?.roles!.admin}}</strong></p></li>
         </ul>
       </div>
-    </nav>
-    <!-- Main content -->
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-      <div class="inner-adjust">
-        <div class="pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">User Profile</h1>
-        </div>
-        <!-- Show user data when logged in -->
-        <div class="row" *ngIf="authService.user as user">
-          <div class="col-md-12">
-            <div class="media">
-              <img class="align-self-start mr-5 img-thumbnail rounded-circle" src="{{(user?.value?.photoURL) ? (user?.value?.photoURL) : '/assets/dummy-user.png'}}"
-                   alt="{{user?.value?.email}}">
-              <div class="media-body">
-                <h1>Hello: <strong>{{(user?.value?.email) ? user?.value?.email : 'User'}}</strong></h1>
-                <p>User ID: <strong>{{user?.value?.uid}}</strong></p>
-                <p>Email: <strong>{{user?.value?.email}}</strong></p>
-                <button (click)="navigateToDataDashboard()">Navigate to data dashboard</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+    </div>
   </div>
+</div>
+
+<div class="bottomnav">
+  <h1>2022 Putin loh</h1>
 </div>

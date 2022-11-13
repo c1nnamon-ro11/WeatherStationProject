@@ -1,37 +1,32 @@
 <div class="topnav">
-  <h1>STATION</h1>
+  <h1>DATA</h1>
 </div>
-<a class="nav-link" (click)="authService.SignOut()">
-  <i class="fas fa-sign-out-alt"></i>
-  Log out</a>
 
-<div class="content">
+<div class="data-container">
+  <div class="sidebar sidebar-sticky">
+    <ul class="nav flex-column">
+      <li class="nav-item" (click)="authService.navigateToUserProfile()">
+        <a class="nav-link">
+          <i class="fas fa-user"></i>User Profile
+        </a>
+      </li>
+      <li [ngClass]="{'activePage' : isOnPage}" class="nav-item" (click)="isOnPage ? authService.navigateToDataDashboard() : false">
+        <a class="nav-link">
+          <i class="fas fa-file"></i>Data
+        </a>
+      </li>
+      <!-- Calling SignOut() Api from AuthService -->
+      <li class="nav-item" (click)="authService.SignOut()">
+        <a class="nav-link">
+          <i class="fas fa-sign-out-alt"></i>Log out
+        </a>
+      </li>
+    </ul>
+  </div>
+
   <app-parameters-container class=""></app-parameters-container>
   <div class="big-cards">
     <app-big-card-cities-info></app-big-card-cities-info>
-
-    <div class="text-center px-2">
-      <input class="form-control" type="file"
-             (change)="onChange($event)">
-
-      <button (click)="onUpload()"
-              class="btn btn-success">
-        Upload
-      </button>
-    </div>
-
-    <!-- Shareable short link of  uploaded file -->
-    <div class="container text-center jumbotron"
-         *ngIf="shortLink">
-      <h2> Visit Here</h2>
-      <a href="{{shortLink}}">{{shortLink}}</a>
-    </div>
-
-    <!--Flag variable is used here-->
-    <div class="container" *ngIf="loading">
-      <h3>Loading ...</h3>
-    </div>
-
     <app-big-card-cities-info></app-big-card-cities-info>
   </div>
 </div>

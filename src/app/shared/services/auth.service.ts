@@ -86,16 +86,15 @@ export class AuthService {
   }
 
   // Login by google provider
-  /*
-  googleLogin() {
+  GoogleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider()
     return this.afAuth.signInWithPopup(provider)
       .then(credential => {
         console.log('Update user - googleLogin')
-        this.updateUser(credential.user)
+        this.UpdateUser(credential.user)
       })
       .then(() => this.router.navigate(['dashboard']))
-  }*/
+  }
 
   // Signing out from app
   SignOut() {
@@ -107,6 +106,7 @@ export class AuthService {
   private UpdateUser(authData:any) {
     authData.roles = { reader: false}
     const userData = new User(authData)
+    console.log(authData, 'auth')
     const ref = this.db.object('users/' + authData.uid)
     ref.valueChanges()
       .subscribe(user => {
@@ -121,16 +121,13 @@ export class AuthService {
       })
   }
 
-  get isLoggedIn(): boolean {
-    console.log(this.afAuth.currentUser)
-    return !!this.afAuth.currentUser;
+
+  navigateToUserProfile(){
+    this.router.navigate(['dashboard']);
   }
 
-  get IsUserLoggedIn(){
-    console.log(this.afAuth.user)
-
-    if(this.afAuth.user !== undefined) return true
-    return false
+  navigateToDataDashboard(){
+    this.router.navigate(['data-dashboard']);
   }
 }
 

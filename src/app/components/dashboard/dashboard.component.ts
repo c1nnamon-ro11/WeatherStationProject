@@ -9,11 +9,14 @@ import {Router} from "@angular/router";
 })
 export class DashboardComponent implements OnInit {
 
+  isOnPage = false;
+
   constructor(
     public authService: AuthService,
     public router: Router) { }
 
   ngOnInit(): void {
+    this.isOnPage = true
   }
 
   navigateToDataDashboard(){
