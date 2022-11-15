@@ -1,0 +1,13 @@
+.data-container {
+  height: calc(100vh - 120px);
+  display: flex;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+}
+
+app-sidebar-menu{
+  width: 12%;
+}

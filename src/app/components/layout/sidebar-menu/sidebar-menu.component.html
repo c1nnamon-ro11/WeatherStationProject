@@ -1,0 +1,26 @@
+<div class="sidebar sidebar-sticky">
+  <ul class="nav flex-column">
+
+    <li class="nav-item" [routerLink]="'/dashboard'"
+        routerLinkActive="activePage"
+        [routerLinkActiveOptions]="{matrixParams: 'ignored', queryParams: 'ignored', paths: 'subset', fragment: 'ignored'}">
+      <a class="nav-link">
+        <i class="fas fa-user"></i>User Profile
+      </a>
+    </li>
+
+    <li class="nav-item" [routerLink]="'/data-dashboard'"
+        routerLinkActive="activePage"
+        [routerLinkActiveOptions]="{matrixParams: 'ignored', queryParams: 'ignored', paths: 'subset', fragment: 'ignored'}">
+      <a class="nav-link">
+        <i class="fas fa-file"></i>Data
+      </a>
+    </li>
+
+    <li class="nav-item" (click)="authService.SignOut()">
+      <a class="nav-link">
+        <i class="fas fa-sign-out-alt"></i>Log out
+      </a>
+    </li>
+  </ul>
+</div>

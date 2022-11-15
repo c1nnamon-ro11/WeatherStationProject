@@ -1,0 +1,18 @@
+<div *ngIf="authService.user as user">
+  <div class="data">
+    <img class="align-self-start mr-5 img-thumbnail rounded-circle user-photo front" src="{{(user?.value?.photoURL) ? (user?.value?.photoURL) : '../../../assets/doge.jpg'}}"
+         alt="{{user?.value?.email}}">
+
+    <div class="content">
+      <h1>Hello: <strong>User</strong></h1>
+      <br>
+      <p>User ID: <strong>{{user?.value?.uid}}</strong></p>
+      <p>Email: <strong>{{user?.value?.email}}</strong></p>
+      <p>Roles:</p>
+      <ul>
+        <li><p>reader: <strong>{{user?.value?.roles!.reader}}</strong></p></li>
+        <li><p>admin: <strong>{{user?.value?.roles!.admin}}</strong></p></li>
+      </ul>
+    </div>
+  </div>
+</div>
