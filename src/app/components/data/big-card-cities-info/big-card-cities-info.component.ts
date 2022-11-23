@@ -35,7 +35,7 @@ export class BigCardCitiesInfoComponent {
       res => {
         this.cityWeather.cityName = res.name;
         this.cityWeather.humidity = res.main.humidity;
-        this.cityWeather.temperature = res.main.temp;
+        this.cityWeather.temperature = (res.main.temp- 273.15).toFixed(1);
         this.cityWeather.pressure = res.main.pressure;
         this.cityWeather.overall = res.weather[0].main;
       }

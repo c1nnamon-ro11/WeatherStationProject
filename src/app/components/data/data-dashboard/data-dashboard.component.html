@@ -3,8 +3,10 @@
     <app-parameters-container></app-parameters-container>
   </div>
 
-  <div class="big-cards">
-    <app-big-card-cities-info></app-big-card-cities-info>
-    <app-big-card-cities-info></app-big-card-cities-info>
+  <div class="saveData">
+    <p>By clicking this button, you will save current state to DB</p>
+  <app-button (click)="SetDataToRTDB()">Save data</app-button>
   </div>
+
+<!--  <app-data-base-data></app-data-base-data>-->
 </div>

@@ -12,9 +12,32 @@ body {
   position: relative;
   margin: 0;
   min-height: 100%;
-  background-color: #d9f5f3;
+  background: #B0235F;
+  background-image: url('/assets/layered-peaks-haikei.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: move 15s linear alternate infinite;
 }
 
 p {
   font-size: 1.2rem;
+}
+
+/*body {*/
+/*  height: 100vh;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  background-image: url('/assets/layered-peaks-haikei.svg');*/
+/*  background-size: cover;*/
+/*  animation: move 10s linear alternate infinite;*/
+/*    position: relative;*/
+/*    margin: 0;*/
+/*    min-height: 100%;*/
+/*}*/
+
+@keyframes move {
+  50% {
+    background-position: 50%;
+  }
 }

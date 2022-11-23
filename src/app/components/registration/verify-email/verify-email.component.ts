@@ -4,7 +4,7 @@ import {AuthService} from "../../../shared/services/auth.service";
 @Component({
   selector: 'app-verify-email',
   templateUrl: './verify-email.component.html',
-  styleUrls: ['./verify-email.component.css']
+  styleUrls: ['./verify-email.component.css', '../../../shared/styles/login-styles.css']
 })
 export class VerifyEmailComponent implements OnInit {
 

@@ -1,0 +1,125 @@
+@import "https://fonts.googleapis.com/css2?family=Varela+Round&display=swap";
+@import "https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css";
+
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  font-family: 'Valera Round', sans-serif;
+}
+
+.authorization-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../../../assets/stacked-steps-haikei.svg');
+  background-size: cover;
+  animation: move 10s linear alternate infinite;
+}
+
+@keyframes move {
+  50% {
+    background-position: 50%;
+  }
+}
+
+.authorization-box {
+  width: 450px;
+  height: min-content;
+  padding: 40px;
+  background: #fff;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow:  0 0 10px rgba(0, 0, 0, .2);
+}
+
+.authorization-box h2 {
+  font-size: 2.2rem;
+}
+
+.authorization-box p {
+  color: #404040;
+  margin-top: 4px;
+  font-size: 1.2rem;
+}
+
+form {
+  text-align: left;
+  margin-top: 0px;
+}
+
+form .form-group {
+  margin: 8px 0;
+}
+
+form .form-group label {
+  display: block;
+  font-size: 20px;
+  color: #101010;
+}
+
+form .form-group input {
+  width: 100%;
+  height: 40px;
+  margin-top: 6px;
+  padding: 0 12px 0 34px;
+  border: 2px solid #c4c4c4;
+  border-radius: 3px;
+  color: #404040;
+  transition: .3s;
+}
+
+form .form-group input:focus {
+  border-color: #124ce7;
+  box-shadow: 0 0 12px #bbd3ff;
+}
+
+form .form-group input:valid {
+  border-color: #124ce7;
+  background: #e4edff;
+}
+
+form .form-group i {
+  position: absolute;
+  color: #404040;
+  font-size: 20px;
+  transform: translateX(12px) translateY(16px);
+}
+
+form .option {
+  cursor: pointer;
+  color: #3784ff;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+form .option:hover {
+  color: #124ce7;
+}
+
+form .options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form .options a {
+  font-size: 16px;
+  margin: 0 10px 0 10px;
+}
+
+form input[type="button"] {
+  cursor: pointer;
+  width: 100%;
+  height: 46px;
+  border-radius: 3px;
+  font-size: 22px;
+  margin-top: 20px;
+  color: #fff;
+  background: linear-gradient(
+    0deg, #124ce7, #3784ff
+  );
+}

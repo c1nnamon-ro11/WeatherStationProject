@@ -16,7 +16,6 @@ export class ParametersContainerComponent implements OnInit {
   constructor(private db: AngularFireDatabase,
               public authService: AuthService,
               public realTimeInfoService: RealTimeInfoService) {
-
   }
 
   user: string
@@ -32,7 +31,7 @@ export class ParametersContainerComponent implements OnInit {
     this.authService.user
       .pipe(
         filter(Boolean),
-        switchMap(() => this.db.object(`data/${this.realTimeInfoService.GetUserId()}`).valueChanges()),
+        switchMap(() => this.db.object(`data/${this.realTimeInfoService.GetUserId()}/CurrentData`).valueChanges()),
         tap((data: any) => {
           this.parameters = this.parameters.map((parameters) => {
             const gettedData = Object.entries(data).find(([key, value]) => {

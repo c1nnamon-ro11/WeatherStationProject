@@ -10,7 +10,6 @@ import {Router} from "@angular/router";
 export class DashboardComponent implements OnInit {
 
   isOnPage = false;
-  pageName = "USER PROFILE"
 
   constructor(
     public authService: AuthService,
@@ -18,9 +17,5 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.isOnPage = true
-  }
-
-  navigateToDataDashboard(){
-    this.router.navigate(['data-dashboard'])
   }
 }

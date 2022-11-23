@@ -1,0 +1,32 @@
+<div class="data-dashboard">
+  <table class="content-table">
+    <thead class="thead">
+      <tr>
+        <th>Number</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Temperature</th>
+        <th>Humidity</th>
+        <th>Pressure</th>
+        <th>Brightness</th>
+        <th>Air Quality</th>
+        <th>Height</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      <tr *ngFor="let dataRow of newDataFormat">
+        <td>{{dataRow.number}}</td>
+        <td>{{dataRow.dataDate}}</td>
+        <td>{{dataRow.dataTime}}</td>
+        <td>{{dataRow.data.temp}}</td>
+        <td>{{dataRow.data.hum}}</td>
+        <td>{{dataRow.data.pres}}</td>
+        <td>{{dataRow.data.birghtness}}</td>
+        <td>{{dataRow.data.height}}</td>
+        <td>{{dataRow.data.airQuality}}</td>
+        <td> <button type="button" class="btn btn-danger" (click)="DeleteDataFromDataBase(dataRow.dataDate +'/'+ dataRow.dataTime)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -31,16 +31,6 @@ const routes: Routes = [
     path: 'verify-email-address',
     component: VerifyEmailComponent
   },
-  // {
-  //   path: 'dashboard',
-  //   component: DashboardComponent,
-  //   canActivate: [AuthGuard]
-  // },
-  // {
-  //   path: 'data-dashboard',
-  //   component: DataDashboardComponent,
-  //   canActivate: [AuthGuard]
-  // },
   {
     path: '',
     component: ContentComponent,
@@ -54,6 +44,11 @@ const routes: Routes = [
         path: 'data-dashboard',
         canActivate: [AuthGuard],
         loadChildren: () => import('./components/data/data-dashboard/data-dashboard.module').then(m => m.DataDashboardModule)
+      },
+      {
+        path: 'history-dashboard',
+        canActivate: [AuthGuard],
+        loadChildren: () => import('./components/data/history-dashboard/history-dashboard.module').then(m => m.HistoryDashboardModule)
       },
     ]
   }

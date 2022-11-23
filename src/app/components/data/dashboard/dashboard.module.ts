@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { DashboardComponent } from './dashboard.component';
 import {DashboardRoutingModule} from "./dashboard-routing.module";
+import {BigCardCitiesInfoModule} from "../big-card-cities-info/big-card-cities-info.module";
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import {DashboardRoutingModule} from "./dashboard-routing.module";
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    BigCardCitiesInfoModule
   ]
 })
 export class DashboardModule { }

@@ -1,6 +1,6 @@
 <div *ngIf="authService.user as user">
   <div class="data">
-    <img class="align-self-start mr-5 img-thumbnail rounded-circle user-photo front" src="{{(user?.value?.photoURL) ? (user?.value?.photoURL) : '../../../assets/doge.jpg'}}"
+    <img class="align-self-start rounded-circle user-photo" src="{{(user?.value?.photoURL) ? (user?.value?.photoURL) : '../../../assets/doge.jpg'}}"
          alt="{{user?.value?.email}}">
 
     <div class="content">
@@ -14,5 +14,9 @@
         <li><p>admin: <strong>{{user?.value?.roles!.admin}}</strong></p></li>
       </ul>
     </div>
+  </div>
+  <div class="big-cards">
+    <app-big-card-cities-info></app-big-card-cities-info>
+    <app-big-card-cities-info></app-big-card-cities-info>
   </div>
 </div>

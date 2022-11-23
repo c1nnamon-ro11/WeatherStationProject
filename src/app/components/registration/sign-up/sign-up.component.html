@@ -1,42 +1,41 @@
-<div class="displayTable">
-  <div class="displayTableCell">
-    <div class="authBlock">
-      <h3>Sign Up</h3>
-      <div class="formGroup">
-        <input
-          type="email"
-          class="formControl"
-          placeholder="Email Address"
-          #userEmail
-          required
-        />
+<div class="authorization-page">
+  <div class="authorization-box">
+
+    <h2>Sign Up</h2>
+    <p>Enter your details</p>
+
+    <form>
+      <div class="form-group">
+        <label for="email">
+          Email
+        </label>
+        <i class="bx bxs-user"></i>
+        <input type="text"
+               id="email"
+               placeholder="Your email" #userEmail
+               required
+        >
       </div>
-      <div class="formGroup">
-        <input
-          type="password"
-          class="formControl"
-          placeholder="Password"
-          #userPwd
-          required
-        />
+      <div class="form-group">
+        <label for="password">
+          Password
+        </label>
+        <i class="bx bxs-lock"></i>
+        <input type="password"
+               id="password"
+               placeholder="Your password"
+               #userPassword
+               required
+        >
       </div>
-      <div class="formGroup">
-        <input
-          type="button"
-          class="btn btnPrimary"
-          value="Sign Up"
-          (click)="authService.SignUpWithCredentials(userEmail.value, userPwd.value)"
-        />
+
+      <input type="button" value="Sign Up" (click)="authService.SignUpWithCredentials(userEmail.value, userPassword.value)">
+
+      <div class="options">
+        <a class="option" href="/sign-in">
+          Already have an account? Log In
+        </a>
       </div>
-      <div class="formGroup">
-        <span class="or"><span class="orInner">Or</span></span>
-      </div>
-    </div>
-    <div class="redirectToLogin">
-      <span
-      >Already have an account?
-        <span class="redirect" routerLink="/sign-in">Log In</span></span
-      >
-    </div>
+    </form>
   </div>
 </div>

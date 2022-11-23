@@ -27,34 +27,42 @@ import { SidebarMenuComponent } from './components/layout/sidebar-menu/sidebar-m
 import {DashboardModule} from "./components/data/dashboard/dashboard.module";
 import {DataDashboardModule} from "./components/data/data-dashboard/data-dashboard.module";
 import {LayoutModule} from "./components/layout/layout.module";
+import { DataBaseDataComponent } from './components/data/data-base-data/data-base-data.component';
+import { HistoryDashboardComponent } from './components/data/history-dashboard/history-dashboard.component';
+import { ButtonComponent } from './components/elements/button/button.component';
+import {DataBaseDataModule} from "./components/data/data-base-data/data-base-data.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SignInComponent,
-    SignUpComponent,
-    ForgotPasswordComponent,
-    VerifyEmailComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
-    AngularFirestoreModule,
-    AngularFireStorageModule,
-    AngularFireDatabaseModule,
-    HttpClientModule,
-    AppRoutingModule,
-    RouterOutlet,
-    RouterLinkWithHref,
-    /*    LayoutModule,
-    DashboardModule,
-    DataDashboardModule,*/
-  ],
-  providers: [
-    AuthService,
-    RealTimeInfoService
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        SignInComponent,
+        SignUpComponent,
+        ForgotPasswordComponent,
+        VerifyEmailComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireAuthModule,
+        AngularFirestoreModule,
+        AngularFireStorageModule,
+        AngularFireDatabaseModule,
+        HttpClientModule,
+        AppRoutingModule,
+        RouterOutlet,
+        RouterLinkWithHref,
+        DataBaseDataModule,
+        /*    LayoutModule,
+        DashboardModule,
+        DataDashboardModule,*/
+    ],
+    providers: [
+        AuthService,
+        RealTimeInfoService
+    ],
+    exports: [
+
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

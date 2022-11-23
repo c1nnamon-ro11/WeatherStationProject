@@ -18,26 +18,20 @@ export class AuthGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
-    let zalupa = 0
+    let counter = 0
 
     return this.authService.user
       .pipe(
         tap(console.log),
         tap((user) => {
-          if(!user && zalupa > 0){
+          if(!user && counter > 0){
             this.router.navigate(['sign-in'])
           }
-          zalupa++
+          counter++
         }),
         filter(Boolean),
         map((user) => !!user),
-        //take(2)
       )
-
-    // if(!this.realTimeInfoService.IsUserLoggedIn()) {
-    //   this.router.navigate(['sign-in'])
-    // }
-    // return true;
   }
 
 }

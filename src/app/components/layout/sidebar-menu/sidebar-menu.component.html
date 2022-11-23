@@ -1,26 +1,42 @@
-<div class="sidebar sidebar-sticky">
-  <ul class="nav flex-column">
+<div class="sidebar">
 
-    <li class="nav-item" [routerLink]="'/dashboard'"
-        routerLinkActive="activePage"
-        [routerLinkActiveOptions]="{matrixParams: 'ignored', queryParams: 'ignored', paths: 'subset', fragment: 'ignored'}">
-      <a class="nav-link">
-        <i class="fas fa-user"></i>User Profile
-      </a>
-    </li>
+  <nav>
+    <div class="nav-title">
+      Monitoring menu
+    </div>
 
-    <li class="nav-item" [routerLink]="'/data-dashboard'"
-        routerLinkActive="activePage"
-        [routerLinkActiveOptions]="{matrixParams: 'ignored', queryParams: 'ignored', paths: 'subset', fragment: 'ignored'}">
-      <a class="nav-link">
-        <i class="fas fa-file"></i>Data
-      </a>
-    </li>
+    <ul>
+      <li class="nav-item" [routerLink]="'/dashboard'"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{matrixParams: 'ignored', queryParams: 'ignored', paths: 'subset', fragment: 'ignored'}">
+        <i class="bx bxs-user"></i>
+        <span>User profile</span>
+      </li>
+      <li class="nav-item" [routerLink]="'/data-dashboard'"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{matrixParams: 'ignored', queryParams: 'ignored', paths: 'subset', fragment: 'ignored'}">
+        <i class="bx bxs-dashboard"></i>
+        <span>Dashboard</span>
+      </li>
+      <li class="nav-item" [routerLink]="'/history-dashboard'"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{matrixParams: 'ignored', queryParams: 'ignored', paths: 'subset', fragment: 'ignored'}">
+        <i class="bx bxs-bar-chart-alt-2"></i>
+        <span>History</span>
+      </li>
+    </ul>
+    <hr>
 
-    <li class="nav-item" (click)="authService.SignOut()">
-      <a class="nav-link">
-        <i class="fas fa-sign-out-alt"></i>Log out
-      </a>
-    </li>
-  </ul>
+    <div class="nav-title">
+      Actions
+    </div>
+
+    <ul>
+      <li class="nav-item" (click)="authService.SignOut()">
+        <i class="bx bxs-log-out"></i>
+        <span>Logout</span>
+      </li>
+    </ul>
+  </nav>
+
 </div>
