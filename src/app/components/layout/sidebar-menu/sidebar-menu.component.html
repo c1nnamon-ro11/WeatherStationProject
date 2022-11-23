@@ -1,0 +1,42 @@
+<div class="sidebar">
+
+  <nav>
+    <div class="nav-title">
+      Monitoring menu
+    </div>
+
+    <ul>
+      <li class="nav-item" [routerLink]="'/dashboard'"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{matrixParams: 'ignored', queryParams: 'ignored', paths: 'subset', fragment: 'ignored'}">
+        <i class="bx bxs-user"></i>
+        <span>User profile</span>
+      </li>
+      <li class="nav-item" [routerLink]="'/data-dashboard'"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{matrixParams: 'ignored', queryParams: 'ignored', paths: 'subset', fragment: 'ignored'}">
+        <i class="bx bxs-dashboard"></i>
+        <span>Dashboard</span>
+      </li>
+      <li class="nav-item" [routerLink]="'/history-dashboard'"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{matrixParams: 'ignored', queryParams: 'ignored', paths: 'subset', fragment: 'ignored'}">
+        <i class="bx bxs-bar-chart-alt-2"></i>
+        <span>History</span>
+      </li>
+    </ul>
+    <hr>
+
+    <div class="nav-title">
+      Actions
+    </div>
+
+    <ul>
+      <li class="nav-item" (click)="authService.SignOut()">
+        <i class="bx bxs-log-out"></i>
+        <span>Logout</span>
+      </li>
+    </ul>
+  </nav>
+
+</div>

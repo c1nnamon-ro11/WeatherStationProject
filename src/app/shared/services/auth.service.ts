@@ -45,8 +45,6 @@ export class AuthService {
       .catch((error) =>
       {
         console.log(error.message)
-        /*if(error.message==='Firebase: The password is invalid or the user does not have a password. (auth/wrong-password).')
-        this.GoogleLogin()*/
       }
       )
   }
@@ -55,7 +53,6 @@ export class AuthService {
   SignUpWithCredentials(email: string, password: string){
     return this.afAuth.createUserWithEmailAndPassword(email, password)
       .then(credential => {
-        console.log('Update user - signIn by creds')
         this.SendVerificationMail();
         this.UpdateUser(credential.user)
       })
@@ -86,16 +83,14 @@ export class AuthService {
   }
 
   // Login by google provider
-  /*
-  googleLogin() {
+  GoogleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider()
     return this.afAuth.signInWithPopup(provider)
       .then(credential => {
-        console.log('Update user - googleLogin')
-        this.updateUser(credential.user)
+        this.UpdateUser(credential.user)
       })
       .then(() => this.router.navigate(['dashboard']))
-  }*/
+  }
 
   // Signing out from app
   SignOut() {
@@ -114,23 +109,7 @@ export class AuthService {
         if(!user?.email) {
           ref.update(userData)
         }
-        // this.afAuth.currentUser.then( data  => {
-        //   console.log(data, 'data');
-        //   console.log(data?.email);
-        // })
       })
-  }
-
-  get isLoggedIn(): boolean {
-    console.log(this.afAuth.currentUser)
-    return !!this.afAuth.currentUser;
-  }
-
-  get IsUserLoggedIn(){
-    console.log(this.afAuth.user)
-
-    if(this.afAuth.user !== undefined) return true
-    return false
   }
 }
 

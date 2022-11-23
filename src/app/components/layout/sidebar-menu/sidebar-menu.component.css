@@ -1,0 +1,130 @@
+@import "https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css";
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap";
+
+/*.sidebar {*/
+/*  width: 100%;*/
+/*  height: 100%;*/
+/*  background: #50b823;*/
+/*}*/
+
+/*.sidebar li {*/
+/*  display: flex;*/
+/*  flex-direction: row;*/
+/*  align-items: center;*/
+/*  min-height: 60px;*/
+/*  background-color: #50a723;*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*.sidebar li:hover {*/
+/*  color: #ffffff;*/
+/*  background-color: #39a723;*/
+/*  padding: 2px 10px;*/
+/*}*/
+
+/*.sidebar li a {*/
+/*  font-size: 1.2rem;*/
+/*  color: white;*/
+/*}*/
+
+/*.sidebar li:hover a {*/
+/*  color: black;*/
+/*}*/
+
+/*.sidebar li i {*/
+/*  margin-right: 15px;*/
+/*  color: #004faa;*/
+/*}*/
+
+/*li:hover .fa-user {*/
+/*  color: black!important;*/
+/*}*/
+/*li:hover .fa-file {*/
+/*  color: black!important;*/
+/*}*/
+/*li:hover .fa-sign-out-alt {*/
+/*  color: black!important;*/
+/*}*/
+
+/*.activePage {*/
+/*  background-color: #7ed56f!important;*/
+/*  pointer-events: none;*/
+/*}*/
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+
+.sidebar {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  background: rgba(10,10,10, .65);
+  box-shadow: 0 8px 32px rgb(2,4,24);
+  border-right: 2px solid rgba(255, 255, 255, .09);
+}
+
+.sidebar .nav-title {
+  color: #dadada;
+  padding: 20px 0 18px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.sidebar nav {
+  padding: 0 20px;
+}
+
+.sidebar nav .nav-item {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 4px;
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  margin: 8px 0;
+  color: #fff;
+  transition: .3s;
+}
+
+.sidebar nav .nav-item.active {
+  background: #ff328e;
+}
+
+.sidebar nav .nav-item:hover {
+  background: rgba(255,255,255, .1);
+}
+
+.sidebar nav .nav-item i {
+  font-size: 26px;
+}
+
+.sidebar nav .nav-item span {
+  font-size: 18px;
+  margin-left: 8px;
+  opacity: 1;
+  pointer-events: visible;
+  transition: .4s;
+  transition-delay: .2s;
+}
+
+.sidebar hr {
+  width: 100%;
+  height: 2px;
+  border-radius: 3px;
+  margin: 20px 0 20px;
+  background: rgba(255, 255, 255, .1);
+  opacity: 1;
+  transition: .4s;
+}

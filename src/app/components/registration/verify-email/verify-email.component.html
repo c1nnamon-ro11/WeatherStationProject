@@ -1,0 +1,40 @@
+<div class="authorization-page">
+  <div class="authorization-box" *ngIf="authService.user.value! !== null; else elseBlock">
+
+    <h2>Thank You for Registering</h2>
+    <p>We have sent a confirmation email to <strong>{{authService.user.value!.email}}</strong></p>
+    <p>Please check your email and click on the link to verify your email address.</p>
+
+    <form>
+      <input type="button" value="Resend Verification Email" (click)="authService.SendVerificationMail()">
+
+      <div class="options">
+        <a class="option" href="/sign-in">
+          Go back to Sign In
+        </a>
+      </div>
+    </form>
+  </div>
+
+  <ng-template #elseBlock>
+    <div class="authorization-box">
+
+      <h2>Verify email</h2>
+      <p>Sorry, for verifying email you must <strong>Sign Up</strong></p>
+      <p>Please, check that you redirect to this page from 'Sign up' page with entered data</p>
+
+      <form>
+        <div class="options">
+          <a class="option" href="/sign-in">
+            Go back to Sign In
+          </a>
+
+          <a class="option" href="/register-user">
+            Go back to Sign Up
+          </a>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+
+</div>

@@ -1,9 +1,11 @@
 import { Injectable, NgZone } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/compat/auth";
-import {BehaviorSubject, of, switchMap} from "rxjs";
+import {BehaviorSubject, map, of, switchMap} from "rxjs";
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import {AngularFireDatabase} from "@angular/fire/compat/database";
+import _ from "lodash";
+import {RealTimeInfoService} from "./realtimeInfo.service";
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +31,7 @@ export class DataService {
     })
   }
 }
+
+
 
 

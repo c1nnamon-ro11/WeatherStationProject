@@ -3,7 +3,7 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import {AngularFireDatabase} from "@angular/fire/compat/database";
 import {AuthService} from "./auth.service";
-import {map} from "rxjs";
+import {BehaviorSubject, map} from "rxjs";
 import _ from 'lodash';
 import {DataService} from "./data.service";
 import {Roles} from "./user";
@@ -12,22 +12,17 @@ import {Roles} from "./user";
 export class RealTimeInfoService {
 
   public userId: string | undefined;
-  userRoles: Array<string | undefined>;
   userRolesValues: Roles | undefined;
-  data: any
+  data: any;
+  savedData: any;
+  savedData$ = new BehaviorSubject<any>([]);
 
   constructor(private auth: AuthService,
-              private dataService: DataService,
-              private db: AngularFireDatabase) {
+              private dataService: DataService) {
 
     // Get user uid
     auth.user.pipe(map(user => {
       return this.userId = _.get(user, 'uid')
-    })).subscribe()
-
-    // Get user roles
-    auth.user.pipe(map(user => {
-      return this.userRoles = _.keys(_.get(user, 'roles'))
     })).subscribe()
 
     // Get user roles as object
@@ -35,9 +30,15 @@ export class RealTimeInfoService {
       return this.userRolesValues = _.get(user, 'roles')
     })).subscribe()
 
-    // Get data of user by uid
+    // Get current data of user by uid
     dataService.data.pipe(map(data => {
-      return this.data = _.get(data, 'weatherData')
+      return this.data = _.get(data, 'CurrentData')
+    })).subscribe()
+
+    // Get historical data by uid
+    dataService.data.pipe(map(data => {
+      this.savedData$.next(_.get(data, 'HistoricalData'))
+      return this.savedData = _.get(data, 'HistoricalData')
     })).subscribe()
   }
 

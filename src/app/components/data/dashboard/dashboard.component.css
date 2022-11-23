@@ -1,0 +1,39 @@
+.data {
+  display: flex;
+}
+
+.user-photo {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  margin: 50px 50px;
+
+  background-color: rgba(10,10,10, .65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 8px 32px rgb(2,4,24);
+  border-top: 2px solid rgba(255, 255, 255, .09);
+}
+
+.content {
+  margin-top: 50px;
+  margin-left: 50px;
+  text-align: start;
+  color: white;
+}
+
+.content p{
+  font-size: 25px;
+}
+
+.content ul {
+  list-style-type: none;
+}
+
+.big-cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px auto;
+  width: 50%;
+}
