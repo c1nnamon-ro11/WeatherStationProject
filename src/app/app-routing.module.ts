@@ -8,6 +8,7 @@ import {VerifyEmailComponent} from "./components/registration/verify-email/verif
 // Route guard
 import { AuthGuard } from "./shared/guard/auth.guard";
 import {ContentComponent} from "./components/layout/content/content.component";
+import {UserCanReadGuard} from "./shared/guard/user-can-read.guard";
 
 const routes: Routes = [
   {
@@ -42,12 +43,12 @@ const routes: Routes = [
       },
       {
         path: 'data-dashboard',
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard, UserCanReadGuard],
         loadChildren: () => import('./components/data/data-dashboard/data-dashboard.module').then(m => m.DataDashboardModule)
       },
       {
         path: 'history-dashboard',
-        canActivate: [AuthGuard],
+        canActivate: [AuthGuard, UserCanReadGuard],
         loadChildren: () => import('./components/data/history-dashboard/history-dashboard.module').then(m => m.HistoryDashboardModule)
       },
     ]
