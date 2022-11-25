@@ -100,7 +100,7 @@ export class AuthService {
   }
 
   private UpdateUser(authData:any) {
-    authData.roles = { reader: false}
+    authData.roles = { reader: false, admin: false}
     const userData = new User(authData)
     const ref = this.db.object('users/' + authData.uid)
     ref.valueChanges()
