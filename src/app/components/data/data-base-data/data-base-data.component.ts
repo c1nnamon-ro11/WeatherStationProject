@@ -29,7 +29,7 @@ export class DataBaseDataComponent implements OnInit {
       this.newDataFormat = [];
       this.dataRows = data;
 
-      console.log(this.dataRows, 'datarows')
+      //console.log(this.dataRows, 'datarows')
       let numberOfData = 1;
 
       let years = Object.keys(this.dataRows);

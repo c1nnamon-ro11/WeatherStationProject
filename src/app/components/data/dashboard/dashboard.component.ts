@@ -14,6 +14,6 @@ export class DashboardComponent implements OnInit {
     public router: Router) { }
 
   ngOnInit(): void {
-    console.log(this.authService.user?.value)
+    //console.log(this.authService.user?.value)
   }
 }
